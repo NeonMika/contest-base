@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ApplicationWebTab</title>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!-- production version, optimized for size and speed -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+
+    <!-- Plotly charting library -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>Contest</h1>
+
+    <div id="chart"></div>
+
+    <div style="background: lightblue;">
+        <h3>datax: </h3>
+        <h4>datax object (array of number): </h4>
+        <p> {{datax}} </p>
+        <h4>datax properties: </h4>
+        <p v-for="(value, index) in datax">
+            Index: {{ index }}, Value: {{ value }}
+        </p>
+    </div>
+
+    <div style="background: lightcoral;">
+        <h3>datay: </h3>
+        <h4>datay object (array of number): </h4>
+        <p> {{datay}} </p>
+        <h4>datay properties: </h4>
+        <p v-for="(value, index) in datay">
+            Index: {{ index }}, Value: {{ value }}
+        </p>
+    </div>
+
+    <div style="background: lightgreen;">
+        <h3>data2djs: </h3>
+        <h4>data2djs object (array of array of numbers): </h4>
+        <p> {{data2djs}} </p>
+        <h4>data2d properties: </h4>
+        <p v-for="(value, index) in data2djs">
+            Index: {{ index }}, Value: {{ value }}
+        </p>
+    </div>
+
+    <div style="background: lightyellow;">
+        <h3>data: </h3>
+        <h4>data object (watch out, this is no array, but a JavaRuntimeObject): </h4>
+        <p> {{data}} </p>
+        <h4>Data properties: </h4>
+        <p v-for="(value, key, index) in data">
+            Index: {{ index }}, Key: {{ key }}, Value: {{ value }}
+        </p>
+    </div>
+
+    <div v-if="bridge" style="background: gray;">
+        <h3>Bridge:</h3>
+        <h4>Bridge type:</h4>
+        <p>Bridge {{ bridge }} injected</p>
+        <h4>Bridge properties:</h4>
+        <p v-for="(value, key, index) in bridge">
+            Index: {{ index }}, Key: {{ key }}, Value: {{ value }}
+        </p>
+    </div>
+</div>
+
+<script src="MainPane.js"></script>
+</body>
+</html>
